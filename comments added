@@ -1,0 +1,45 @@
+import random
+
+# Function to initialize random cargo locations
+def initialize_cargo_locations():
+    # Randomly sample 3 unique locations from 1 to 7
+    return random.sample(range(1, 8), 3)  
+
+# Function to check the user's guessed locations against the actual cargo locations
+def check_cargo_locations(user_input, cargo_locations):
+    # Filter out the locations in user input that are also in the actual cargo locations
+    found_cargo = [location for location in user_input if location in cargo_locations]
+    # Calculate the total weight of the found cargo
+    return sum([cargo_weights.get(location, 0) for location in found_cargo])
+
+# A dictionary mapping each location to its corresponding cargo weight
+cargo_weights = {1: 213, 2: 300, 3: 250, 4: 200, 5: 350, 6: 163, 7: 213}  
+# Initialize the actual cargo locations
+cargo_locations = initialize_cargo_locations()
+
+print("Enter the kilometer marks where you think the cargo is buried (1-7 km):")
+
+while True:
+    try:
+        # Collecting user input for guessed locations
+        user_input = [int(input(f"Enter location {i+1}: ")) for i in range(3)]
+        # Check if all entered locations are within the valid range
+        if not all(1 <= location <= 7 for location in user_input):
+            print("Input out of range. Please enter locations between 1 and 7.")
+            continue
+    except ValueError:
+        # Handle non-numeric input
+        print("Invalid input, please enter numbers only.")
+        continue
+
+    # Calculate the total weight of the cargo found by the user
+    total_weight = check_cargo_locations(user_input, cargo_locations)
+
+    # Check if the total weight matches the target weight
+    if total_weight == 713:
+        print("Congratulations! You have found all the cargo.")
+        break
+    else:
+        # Inform the user that not all cargo was found and restart the game
+        print("Not all cargo found, the boxes have moved. Try again.")
+        cargo_locations = initialize_cargo_locations()
