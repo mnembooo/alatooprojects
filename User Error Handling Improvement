@@ -1,0 +1,14 @@
+# ... [previous code remains unchanged]
+
+while True:
+    try:
+        user_input = [int(input(f"Enter location {i+1}: ")) for i in range(3)]
+        if not all(1 <= location <= 7 for location in user_input):
+            print("Input out of range. Please enter locations between 1 and 7.")
+            continue
+    except ValueError:
+        # Enhanced error message for non-numeric input
+        print("Invalid input detected. Please ensure you enter numeric values only (1-7).")
+        continue
+
+    # ... [rest of the code remains unchanged]
