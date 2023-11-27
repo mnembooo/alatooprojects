@@ -1,5 +1,5 @@
 # alatooprojects
-# Cargo Location Game
+# Cargo Location
 
 ## Project Overview
 This Python project is a simple, interactive command-line game where players guess the locations of hidden cargo. The cargo is randomly placed in different locations, and players must find the correct spots to win.
@@ -18,6 +18,5 @@ To play the game, follow these steps:
 - The game informs the player if all the cargo is found or if they need to guess again.
 - If not all cargo is found, the locations are re-randomized, and the player can guess again.
 
-## Contributions
-Contributions, issues, and feature requests are welcome. Feel free to check [issues page](link-to-your-issues-page) if you want to contribute.
+
 
