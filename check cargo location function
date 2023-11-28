@@ -1,0 +1,5 @@
+def check_cargo_locations(user_input, cargo_locations):
+    found_cargo = [location for location in user_input if location in cargo_locations]
+    return sum([cargo_weights.get(location, 0) for location in found_cargo])
+
+#The check_cargo_locations function in your script is designed to evaluate the user's input against the pre-determined cargo locations and calculate the total weight of the cargo found.
